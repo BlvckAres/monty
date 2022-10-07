@@ -3,13 +3,13 @@
 /**
  * addst - changes mode of push to stack
  * @stack: pointer to stack
- * @num_line: line number
+ * @nline: line number
  *
- * Return: void
+ * Return: Nothing.
  */
-void addst(stack_t **stack, unsigned int num_line)
+void addst(stack_t **stack, unsigned int nline)
 {
-	(void)num_line;
+	(void)nline;
 	(void)stack;
 
 	arg.flag = 0;
@@ -18,13 +18,13 @@ void addst(stack_t **stack, unsigned int num_line)
 /**
  * addqu - changes mode of push to queue
  * @stack: pointer to stack
- * @num_line: line number
+ * @nline: line number
  *
- * Return: void
+ * Return: Nothing.
  */
-void addqu(stack_t **stack, unsigned int num_line)
+void addqu(stack_t **stack, unsigned int nline)
 {
-	(void)num_line;
+	(void)nline;
 	(void)stack;
 
 	arg.flag = 1;

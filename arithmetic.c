@@ -1,37 +1,37 @@
 #include "monty.h"
 
 /**
- * _add - adds the top two elements together
+ * addop - adds the top two elements together
  * @stack: pointer to the head node pointer of stack
- * @line_num: the line number
- * Return: void
+ * @nline: the line number
+ * Return: Nothing.
  */
-void _add(stack_t **stack, unsigned int line_num)
+void addop(stack_t **stack, unsigned int nline)
 {
-	stack_t *node;
+	stack_t *temp;
 
 	if (!(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+		fprintf(stderr, "L%d: can't add, stack too short\n", nline);
 		exit(EXIT_FAILURE);
 	}
 
-	node = *stack;
+	temp = *stack;
 	(*stack)->next->n += (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	free(node);
+	free(temp);
 }
 
 /**
- * _sub - subtracts the top two elements and stores it in second element
+ * subop - subtracts the top two elements and stores it in second element
  * @stack: pointer to the head node pointer of stack
  * @nline: the line number
- * Return: void
+ * Return: Nothing.
  */
-void _sub(stack_t **stack, unsigned int nline)
+void subop(stack_t **stack, unsigned int nline)
 {
-	stack_t *node;
+	stack_t *temp;
 
 	if (!(*stack) || !(*stack)->next)
 	{
@@ -39,22 +39,22 @@ void _sub(stack_t **stack, unsigned int nline)
 		exit(EXIT_FAILURE);
 	}
 
-	node = *stack;
+	temp = *stack;
 	(*stack)->next->n -= (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	free(node);
+	free(temp);
 }
 
 /**
- * _div - divides the top two elements and stores it in second element
+ * divop - divides the top two elements and stores it in second element
  * @stack: pointer to the head node pointer of stack
  * @nline: the line number
- * Return: void
+ * Return: Nothing.
  */
-void _div(stack_t **stack, unsigned int nline)
+void divop(stack_t **stack, unsigned int nline)
 {
-	stack_t *node;
+	stack_t *temp;
 
 	if (!(*stack) || !(*stack)->next)
 	{
@@ -68,22 +68,22 @@ void _div(stack_t **stack, unsigned int nline)
 		exit(EXIT_FAILURE);
 	}
 
-	node = *stack;
+	temp = *stack;
 	(*stack)->next->n /= (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	free(node);
+	free(temp);
 }
 
 /**
- * _multi - multiplies the top two elements and stores it in second element
+ * mulop - multiplies the top two elements and stores it in second element
  * @stack: pointer to the head node pointer of stack
  * @nline: the line number
- * Return: void
+ * Return: Nothing.
  */
-void _multi(stack_t **stack, unsigned int nline)
+void mulop(stack_t **stack, unsigned int nline)
 {
-	stack_t *node;
+	stack_t *temp;
 
 	if (!(*stack) || !(*stack)->next)
 	{
@@ -91,22 +91,22 @@ void _multi(stack_t **stack, unsigned int nline)
 		exit(EXIT_FAILURE);
 	}
 
-	node = *stack;
+	temp = *stack;
 	(*stack)->next->n *= (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	free(node);
+	free(temp);
 }
 
 /**
- * _modo - multiplies the top two elements and stores it in second element
+ * modop - multiplies the top two elements and stores it in second element
  * @stack: pointer to the head node pointer of stack
  * @nline: the line number
- * Return: void
+ * Return: Nothing.
  */
-void _modo(stack_t **stack, unsigned int nline)
+void modop(stack_t **stack, unsigned int nline)
 {
-	stack_t *node;
+	stack_t *temp;
 
 	if (!(*stack) || !(*stack)->next)
 	{
@@ -120,9 +120,9 @@ void _modo(stack_t **stack, unsigned int nline)
 		exit(EXIT_FAILURE);
 	}
 
-	node = *stack;
+	temp = *stack;
 	(*stack)->next->n %= (*stack)->n;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	free(node);
+	free(temp);
 }

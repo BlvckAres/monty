@@ -3,80 +3,80 @@
 /**
  * rotl - rotates the stack to the top
  * @stack: pointer to the head node pointer of stack
- * @num_line: the line number
- * Return: void.
+ * @nline: the line number
+ * Return: Nothing.
  */
-void rotl(stack_t **stack, unsigned int num_line)
+void rotl(stack_t **stack, unsigned int nline)
 {
-	stack_t *node;
+	stack_t *temp;
 	int hold_this, hold_this_again;
-	(void)num_line;
+	(void)nline;
 
 	if (stack == NULL || *stack == NULL)
 	{
-		nop(stack, num_line);
+		nop(stack, nline);
 	}
 
 	hold_this = (*stack)->n;
-	node = *stack;
+	temp = *stack;
 
-	while (node)
+	while (temp)
 	{
-		if (node->next == NULL)
+		if (temp->next == NULL)
 			break;
-		node = node->next;
+		temp = temp->next;
 	}
 
-	hold_this_again = node->n;
+	hold_this_again = temp->n;
 	(*stack)->n = hold_this_again;
-	node->n = hold_this;
+	temp->n = hold_this;
 }
 
 /**
  * rotlop - rotates stack to left
  * @stack: pointer to the head node pointer of stack
- * @num_line: the line number
- * Return: void.
+ * @nline: the line number
+ * Return: Nothing.
  */
-void rotlop(stack_t **stack, unsigned int num_line)
+void rotlop(stack_t **stack, unsigned int nline)
 {
-	stack_t *last, *temp;
+	stack_t *last, *tmp;
 
-	(void)num_line;
+	(void)nline;
 	if (!stack || !(*stack) || !((*stack)->next))
 		return;
 
-	temp = *stack;
-	last = temp;
+	tmp = *stack;
+	last = tmp;
 
 	while (last->next)
 	{
 		last = last->next;
 	}
 
-	last->next = temp;
-	temp->prev = last;
-	temp->next->prev = NULL;
-	*stack = temp->next;
-	temp->next = NULL;
+	last->next = tmp;
+	tmp->prev = last;
+	tmp->next->prev = NULL;
+	*stack = tmp->next;
+	tmp->next = NULL;
 }
 
 /**
  * rotrop - rotates stack to right
  * @stack: pointer to the head node pointer of stack
- * @num_line: the line number
- * Return: void.
+ * @nline: the line number
+ * Return: Nothing.
  */
-void rotrop(stack_t **stack, unsigned int num_line)
+void rotrop(stack_t **stack, unsigned int nline)
 {
-	stack_t *last, *temp;
+	stack_t *last, *tmp;
 
-	(void)num_line;
+	(void)nline;
 	if (!stack || !(*stack) || !((*stack)->next))
 		return;
 
-	temp = *stack;
-	last = temp;
+	tmp = *stack;
+	last = tmp;
 
 	while (last->next)
 	{
@@ -85,24 +85,24 @@ void rotrop(stack_t **stack, unsigned int num_line)
 
 	last->prev->next = NULL;
 	last->prev = NULL;
-	temp->prev = last;
-	last->next = temp;
+	tmp->prev = last;
+	last->next = tmp;
 	*stack = last;
 }
 
 /**
  * qpush - pushes for queue instead of stack
  * @stack: pointer to the head node pointer of stack
- * @num_line: the line number
- * Return: void.
+ * @nline: the line number
+ * Return: Nothing.
  */
-void qpush(stack_t **stack, unsigned int num_line)
+void qpush(stack_t **stack, unsigned int nline)
 {
 	stack_t *last, *new;
 
 	if (stack == NULL)
 	{
-		fprintf(stderr, "L%d: stack not found\n", num_line);
+		fprintf(stderr, "L%d: stack not found\n", nline);
 		exit(EXIT_FAILURE);
 	}
 

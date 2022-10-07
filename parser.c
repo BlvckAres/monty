@@ -1,13 +1,13 @@
-nclude "monty.h"
+#include "monty.h"
 
 /**
  * parseline - tokenizes a line of text, storing it in line struct
  * @line: struct containing line contents and line number
- * @buf: string of text read from script file
+ * @buffer: string of text read from script file
  *
- * Return: void
+ * Return: Nothing
  */
-void parseline(line_t *line, char *buf)
+void parseline(line_t *line, char *buffer)
 {
 	unsigned int i;
 	char *token = NULL;
@@ -19,7 +19,7 @@ void parseline(line_t *line, char *buf)
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(buf, " '\n'");
+	token = strtok(buffer, " '\n'");
 	for (i = 0; token && i < 2; i++)
 	{
 		line->content[i] = token;
@@ -33,7 +33,7 @@ void parseline(line_t *line, char *buf)
  * parsefile - reads and parses file one line at a time
  * @file: the script to be read
  *
- * Return: void
+ * Return: Nothing
  */
 void parsefile(FILE *file)
 {
