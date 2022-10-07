@@ -1,0 +1,31 @@
+#include "monty.h"
+
+/**
+ * addst - changes mode of push to stack
+ * @stack: pointer to stack
+ * @num_line: line number
+ *
+ * Return: void
+ */
+void addst(stack_t **stack, unsigned int num_line)
+{
+	(void)num_line;
+	(void)stack;
+
+	arg.flag = 0;
+}
+
+/**
+ * addqu - changes mode of push to queue
+ * @stack: pointer to stack
+ * @num_line: line number
+ *
+ * Return: void
+ */
+void addqu(stack_t **stack, unsigned int num_line)
+{
+	(void)num_line;
+	(void)stack;
+
+	arg.flag = 1;
+}
